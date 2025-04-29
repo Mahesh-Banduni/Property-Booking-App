@@ -11,6 +11,7 @@ const useBookingList = () => {
       dispatch(setLoading(true));
       
       const response = await axiosInstance.get(`/api/bookings/`);
+      console.log(response);
 
       if (!response.data) {
         throw new Error('No data received from server');

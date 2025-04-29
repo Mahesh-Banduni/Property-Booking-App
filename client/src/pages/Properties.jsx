@@ -27,9 +27,10 @@ const Properties = () => {
     fetchProperties();
   }, []);  
  
-  const handleBooking = async (propertyId, bookingData) => {
+  const handleBooking = async (bookingData) => {
     try {
-      const response=await bookProperty(propertyId, bookingData);
+        console.log(bookingData)
+      const response=await bookProperty(bookingData);
       console.log(response);
       if(response?.updatedAt){
       toast.success('Property booked successfully', {

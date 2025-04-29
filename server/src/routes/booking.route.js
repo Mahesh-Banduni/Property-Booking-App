@@ -30,8 +30,8 @@ const auth = require("../middlewares/auth.js");
  *             properties:
  *               propertyId:
  *                 type: string
- *                 description: Booking's Id
- *               bookingData:
+ *                 description: Property's Id
+ *               bookTillDate:
  *                 type: string
  *                 description: Booked Till Date
  *     responses:

@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { X, Save, User, Mail, Calendar } from 'lucide-react';
 
 const UserBookForm = ({ property, isOpen, onClose, onBook }) => {
+  //console.log(property);
   const [formData, setFormData] = useState({
+    propertyId: property._id,
     bookTillDate:''
   });
 
@@ -18,7 +20,7 @@ const UserBookForm = ({ property, isOpen, onClose, onBook }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onBook(property.id, formData);
+    onBook(formData);
     onClose();
   };
 

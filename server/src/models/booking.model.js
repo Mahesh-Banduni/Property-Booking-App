@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const bookingsSchema=new mongoose.Schema({
     bookedProperty: {
         type:mongoose.Schema.Types.ObjectId, 
-        ref: "User" 
+        ref: "Property" 
     },
     bookedTillDate: {
         type: Date

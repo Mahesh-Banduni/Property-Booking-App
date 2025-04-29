@@ -31,8 +31,7 @@ const createBooking= async(req, res, next)=>{
     try {
         const userId= req.user.id;
         const propertyId = req.body.propertyId;
-        const bookingData= req.body.bookingData;
-        const booking= await bookingService.createBooking(userId, propertyId, bookingData);
+        const booking= await bookingService.createBooking(userId, propertyId);
         res.status(200).json({
             success: true,
             data: booking,

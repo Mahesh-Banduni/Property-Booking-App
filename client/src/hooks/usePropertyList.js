@@ -44,6 +44,7 @@ const usePropertyList = () => {
       dispatch(setLoading(true));
       
       const response = await axiosInstance.get(`/api/properties/`);
+      console.log(response);
 
       if (!response.data) {
         throw new Error('No data received from server');
