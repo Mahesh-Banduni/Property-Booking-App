@@ -40,7 +40,7 @@ const auth = require("../middlewares/auth.js");
  *       400:
  *         description: Bad request
  */
-router.post("/create", propertyController.createProperty);
+router.post("/create", auth, propertyController.createProperty);
 
 /**
  * @swagger

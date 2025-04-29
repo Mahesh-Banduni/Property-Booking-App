@@ -1,5 +1,6 @@
 const Property= require("../models/property.model.js");
 const User= require("../models/user.model.js");
+const userService= require("./user.service.js");
 const {BadRequestError, NotFoundError, ConflictError} = require("../errors/errors.js");
 const generatePropertyCode = async()=> {
     let id;
@@ -17,14 +18,14 @@ const createProperty = async(userId, propertyData)=>{
         propertyCode = await generatePropertyCode();
     
         // Check if the generated property code already exists
-        propertyCodeCheck = await Product.find({ propertyCode });
+        propertyCodeCheck = await Property.find({ propertyCode });
     } while (propertyCodeCheck.length > 0); // Repeat if the property code already exists
 
 
     const user= await userService.getUserById(userId);
     // Ensure the user has the 'admin' role
-    if (user.role !== 'Admin') {
-        throw new BadRequestError('Only admins can create propertys');
+    if (user.role !== 'ADMIN') {
+        throw new BadRequestError('Only admins can create properties');
     }
 
     const property= new Property();

@@ -26,12 +26,12 @@ const auth = require("../middlewares/auth.js");
  *             type: object
  *             required:
  *               - propertyId
- *               - bookedTillDate
- *             bookings:
+ *               - bookingData
+ *             properties:
  *               propertyId:
  *                 type: string
  *                 description: Booking's Id
- *               bookedTillDate:
+ *               bookingData:
  *                 type: string
  *                 description: Booked Till Date
  *     responses:
@@ -40,7 +40,7 @@ const auth = require("../middlewares/auth.js");
  *       400:
  *         description: Bad request
  */
-router.post("/create", bookingController.createBooking);
+router.post("/create", auth, bookingController.createBooking);
 
 /**
  * @swagger

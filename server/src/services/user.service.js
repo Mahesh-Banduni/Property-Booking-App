@@ -23,7 +23,7 @@ const createUser = async(userData)=>{
 }
 
 const getUserById = async(userId) =>{
-    const user= await User.findById(userId).populate('property');
+    const user= await User.findById(userId);
     if(!user){
         throw new NotFoundError("User doesn't exist");
     }

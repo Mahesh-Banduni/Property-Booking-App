@@ -8,6 +8,8 @@ const createBooking = async(userId, propertyId, bookingData) =>{
     if(!user){
         throw new NotFoundError("No user exists");
     }
+    console.log(propertyId);
+    console.log(bookingData);
     const property = await Property.findById(propertyId);
     if(!property){
         throw new NotFoundError("No property exists");
